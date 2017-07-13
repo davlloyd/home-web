@@ -1,2 +1,3 @@
 # home-web
-Home Web Services
+Home Web Services built primarily on Python Django
+
