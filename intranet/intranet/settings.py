@@ -37,6 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'accesslog',
+    #'django_jenkins',
+]
+
+JENKINS_TASKS = [
+    'django_jenkins.tasks.run_pylint',
 ]
 
 MIDDLEWARE = [
@@ -75,9 +81,20 @@ WSGI_APPLICATION = 'intranet.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        #'NAME': 'home',
+        #'USER': 'root',
+        #'PASSWORD': 'password',
+        #'HOST': 'mysql',
+        #'PORT': 3306,
+        'OPTIONS': {
+            'read_default_file': os.path.join(BASE_DIR, 'config/mysql.conf'),
+        }
     }
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#    }
 }
 
 
